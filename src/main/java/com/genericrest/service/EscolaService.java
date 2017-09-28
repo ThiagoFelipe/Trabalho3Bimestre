@@ -12,6 +12,5 @@ import com.genericrest.model.Escola;
  * @author thiag
  */
 public interface EscolaService extends CRUDRestService<Escola>{
-    
-    
+
 }

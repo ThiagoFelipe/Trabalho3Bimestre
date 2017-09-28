@@ -8,6 +8,7 @@ package com.genericrest.dao.impl;
 import com.genericrest.dao.GenericDAO;
 import com.genericrest.dao.ProfessorDAO;
 import com.genericrest.model.Professor;
+import javax.enterprise.context.ApplicationScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,12 +16,13 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ApplicationScoped
 public class ProfessorDAOImpl extends GenericDAO<Professor, Long> implements ProfessorDAO{
     
     private static final Logger LOG = LoggerFactory.getLogger(ProfessorDAOImpl.class);
 
-    public ProfessorDAOImpl(Class<Professor> entityClass) {
-        super(entityClass);
+    public ProfessorDAOImpl() {
+        super(Professor.class);
     }
 
     @Override

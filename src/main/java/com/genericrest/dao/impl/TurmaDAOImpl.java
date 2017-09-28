@@ -8,6 +8,7 @@ package com.genericrest.dao.impl;
 import com.genericrest.dao.GenericDAO;
 import com.genericrest.dao.TurmaDAO;
 import com.genericrest.model.Turma;
+import javax.enterprise.context.ApplicationScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,12 +16,13 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ApplicationScoped
 public class TurmaDAOImpl extends GenericDAO<Turma, Long> implements TurmaDAO{
     
     private static final Logger LOG = LoggerFactory.getLogger(TurmaDAOImpl.class);
 
-    public TurmaDAOImpl(Class<Turma> entityClass) {
-        super(entityClass);
+    public TurmaDAOImpl() {
+        super(Turma.class);
     }
 
     @Override

@@ -12,6 +12,5 @@ import com.genericrest.model.Turma;
  * @author thiag
  */
 public interface TurmaService extends CRUDRestService<Turma>{
-   
-    
+
 }

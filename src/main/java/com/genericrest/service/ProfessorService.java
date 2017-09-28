@@ -6,12 +6,10 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Professor;
-
 /**
  *
  * @author thiag
  */
 public interface ProfessorService extends CRUDRestService<Professor>{
-    
-    
+ 
 }

@@ -6,7 +6,6 @@
 package com.genericrest.dao;
 
 import com.genericrest.model.Aulas;
-import org.slf4j.Logger;
 
 /**
  *

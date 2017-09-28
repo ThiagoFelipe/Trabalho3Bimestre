@@ -12,5 +12,5 @@ import com.genericrest.model.Remuneracao;
  * @author thiag
  */
 public interface RemuneracaoDAO extends DAO<Remuneracao, Long>{
-    
+
 }

@@ -6,12 +6,11 @@
 package com.genericrest.dao;
 
 import com.genericrest.model.Escola;
-import org.slf4j.Logger;
 
 /**
  *
  * @author thiag
  */
 public interface EscolaDAO extends DAO<Escola, Long>{
-    
+ 
 }

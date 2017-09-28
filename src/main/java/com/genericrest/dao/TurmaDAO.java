@@ -6,12 +6,11 @@
 package com.genericrest.dao;
 
 import com.genericrest.model.Turma;
-import org.slf4j.Logger;
 
 /**
  *
  * @author thiag
  */
 public interface TurmaDAO extends DAO<Turma, Long>{
-    
+
 }

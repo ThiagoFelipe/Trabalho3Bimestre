@@ -11,7 +11,9 @@ import com.genericrest.model.Escola;
 import com.genericrest.service.EscolaService;
 import com.genericrest.service.GenericCRUDRestService;
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.GenericEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ManagedBean
+@Path("/escola")
 public class EscolaRestService extends GenericCRUDRestService<Escola> implements EscolaService{
     
     private static final Logger LOG = LoggerFactory.getLogger(EscolaRestService.class);
@@ -27,8 +31,8 @@ public class EscolaRestService extends GenericCRUDRestService<Escola> implements
      @Inject
     private EscolaDAO escolaDAO;
 
-    public EscolaRestService(Class<Escola> entityClass) {
-        super(entityClass);
+    public EscolaRestService() {
+        super(Escola.class);
     }
 
     @Override

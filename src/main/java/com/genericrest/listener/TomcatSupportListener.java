@@ -1,4 +1,4 @@
-package com.learnrest.listener;
+package com.genericrest.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

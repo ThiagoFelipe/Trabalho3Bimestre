@@ -6,12 +6,10 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Aulas;
-
 /**
  *
  * @author thiag
  */
 public interface AulasService extends CRUDRestService<Aulas>{
-    
     
 }

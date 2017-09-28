@@ -6,12 +6,10 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Remuneracao;
-
 /**
  *
  * @author thiag
  */
 public interface RemuneracaoService extends CRUDRestService<Remuneracao>{
-    
-    
+
 }

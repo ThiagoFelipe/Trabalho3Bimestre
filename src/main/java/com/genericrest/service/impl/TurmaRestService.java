@@ -11,7 +11,9 @@ import com.genericrest.model.Turma;
 import com.genericrest.service.GenericCRUDRestService;
 import com.genericrest.service.TurmaService;
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.GenericEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ManagedBean
+@Path("/turma")
 public class TurmaRestService extends GenericCRUDRestService<Turma> implements TurmaService{
     
     private static final Logger LOG = LoggerFactory.getLogger(TurmaRestService.class);
@@ -30,7 +34,7 @@ public class TurmaRestService extends GenericCRUDRestService<Turma> implements T
     public TurmaRestService(Class<Turma> entityClass) {
         super(entityClass);
     }
-
+    
     @Override
     public GenericEntity listToGenericEntity(List<Turma> list) {
         return new GenericEntity<List<Turma>>(list){};

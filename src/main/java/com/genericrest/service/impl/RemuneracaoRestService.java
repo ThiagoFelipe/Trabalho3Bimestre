@@ -11,7 +11,9 @@ import com.genericrest.model.Remuneracao;
 import com.genericrest.service.GenericCRUDRestService;
 import com.genericrest.service.RemuneracaoService;
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.GenericEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ManagedBean
+@Path("/remuneracao")
 public class RemuneracaoRestService extends GenericCRUDRestService<Remuneracao> implements RemuneracaoService{
     
      private static final Logger LOG = LoggerFactory.getLogger(RemuneracaoRestService.class);
@@ -27,8 +31,8 @@ public class RemuneracaoRestService extends GenericCRUDRestService<Remuneracao> 
     @Inject
     private RemuneracaoDAO remuneracaoDAO;
 
-    public RemuneracaoRestService(Class<Remuneracao> entityClass) {
-        super(entityClass);
+    public RemuneracaoRestService() {
+        super(Remuneracao.class);
     }
 
     @Override

@@ -6,12 +6,11 @@
 package com.genericrest.dao;
 
 import com.genericrest.model.Professor;
-import org.slf4j.Logger;
 
 /**
  *
  * @author thiag
  */
 public interface ProfessorDAO extends DAO<Professor, Long>{
-    
+
 }

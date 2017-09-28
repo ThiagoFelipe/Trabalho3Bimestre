@@ -11,7 +11,9 @@ import com.genericrest.model.Professor;
 import com.genericrest.service.GenericCRUDRestService;
 import com.genericrest.service.ProfessorService;
 import java.util.List;
+import javax.annotation.ManagedBean;
 import javax.inject.Inject;
+import javax.ws.rs.Path;
 import javax.ws.rs.core.GenericEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author thiag
  */
+@ManagedBean
+@Path("/professor")
 public class ProfessorRestService extends GenericCRUDRestService<Professor> implements ProfessorService{
     
     private static final Logger LOG = LoggerFactory.getLogger(ProfessorRestService.class);
@@ -27,8 +31,8 @@ public class ProfessorRestService extends GenericCRUDRestService<Professor> impl
     @Inject
     private ProfessorDAO professorDAO;
 
-    public ProfessorRestService(Class<Professor> entityClass) {
-        super(entityClass);
+    public ProfessorRestService() {
+        super(Professor.class);
     }
 
     @Override
