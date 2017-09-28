@@ -24,12 +24,12 @@ import org.slf4j.LoggerFactory;
  */
 @ManagedBean
 @Path("/aula")
-public class AulasRestService extends GenericCRUDRestService<Aulas> implements AulasService{
+class AulasRestService extends GenericCRUDRestService<Aulas> implements AulasService{
     
     private static final Logger LOG = LoggerFactory.getLogger(AulasRestService.class);
     
     @Inject
-    private AulasDAO aulasDAO;
+    private AulasDAO aulaDAO;
 
     public AulasRestService() {
         super(Aulas.class);
@@ -42,7 +42,7 @@ public class AulasRestService extends GenericCRUDRestService<Aulas> implements A
 
     @Override
     public DAO getDao() {
-        return aulasDAO;
+        return aulaDAO;
     }
 
     @Override

@@ -24,15 +24,15 @@ import org.slf4j.LoggerFactory;
  */
 @ManagedBean
 @Path("/turma")
-public class TurmaRestService extends GenericCRUDRestService<Turma> implements TurmaService{
+class TurmaRestService extends GenericCRUDRestService<Turma> implements TurmaService{
     
     private static final Logger LOG = LoggerFactory.getLogger(TurmaRestService.class);
     
      @Inject
-    private TurmaDAO turmaDAO;
+    private TurmaDAO turDAO;
 
-    public TurmaRestService(Class<Turma> entityClass) {
-        super(entityClass);
+    public TurmaRestService() {
+        super(Turma.class);
     }
     
     @Override
@@ -42,7 +42,7 @@ public class TurmaRestService extends GenericCRUDRestService<Turma> implements T
 
     @Override
     public DAO getDao() {
-        return turmaDAO;
+        return turDAO;
     }
 
     @Override

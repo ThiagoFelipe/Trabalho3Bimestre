@@ -24,12 +24,12 @@ import org.slf4j.LoggerFactory;
  */
 @ManagedBean
 @Path("/professor")
-public class ProfessorRestService extends GenericCRUDRestService<Professor> implements ProfessorService{
+class ProfessorRestService extends GenericCRUDRestService<Professor> implements ProfessorService{
     
     private static final Logger LOG = LoggerFactory.getLogger(ProfessorRestService.class);
     
     @Inject
-    private ProfessorDAO professorDAO;
+    private ProfessorDAO profDAO;
 
     public ProfessorRestService() {
         super(Professor.class);
@@ -42,7 +42,7 @@ public class ProfessorRestService extends GenericCRUDRestService<Professor> impl
 
     @Override
     public DAO getDao() {
-        return professorDAO;
+        return profDAO;
     }
 
     @Override
