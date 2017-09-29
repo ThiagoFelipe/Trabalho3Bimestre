@@ -8,6 +8,7 @@ package com.genericrest.model;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -19,16 +20,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table
 public class Remuneracao extends AbstractEntity{
     
-    private Date data;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dia;
     private double valor;
 
-    public Date getData() {
-        return data;
+    public Date getDia() {
+        return dia;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDia(Date dia) {
+        this.dia = dia;
     }
+
 
     public double getValor() {
         return valor;
