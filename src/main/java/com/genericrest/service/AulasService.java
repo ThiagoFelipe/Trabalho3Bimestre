@@ -6,10 +6,13 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Aulas;
+import javax.ws.rs.core.Response;
 /**
  *
  * @author thiag
  */
 public interface AulasService extends CRUDRestService<Aulas>{
+    
+    Response getByNome(String nome);
     
 }

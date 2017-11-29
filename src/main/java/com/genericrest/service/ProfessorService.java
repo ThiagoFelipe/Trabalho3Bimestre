@@ -6,10 +6,13 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Professor;
+import javax.ws.rs.core.Response;
 /**
  *
  * @author thiag
  */
 public interface ProfessorService extends CRUDRestService<Professor>{
+    
+    Response getByNome(String nome);
  
 }

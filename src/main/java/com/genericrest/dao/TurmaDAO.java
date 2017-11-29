@@ -12,5 +12,7 @@ import com.genericrest.model.Turma;
  * @author thiag
  */
 public interface TurmaDAO extends DAO<Turma, Long>{
+    
+    Turma findByNome(String nome);
 
 }

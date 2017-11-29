@@ -12,5 +12,7 @@ import com.genericrest.model.Professor;
  * @author thiag
  */
 public interface ProfessorDAO extends DAO<Professor, Long>{
+    
+    Professor findByNome(String nome);
 
 }

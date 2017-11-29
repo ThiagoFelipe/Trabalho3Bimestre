@@ -5,8 +5,8 @@
     <class>com.genericrest.model.Aulas</class>
     <class>com.genericrest.model.Escola</class>
     <class>com.genericrest.model.Professor</class>
-    <class>com.genericrest.model.Remuneracao</class>
     <class>com.genericrest.model.Turma</class>
+    <class>com.genericrest.model.Aluno</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/genericrest"/>

@@ -8,7 +8,10 @@ package com.genericrest.dao.impl;
 import com.genericrest.dao.GenericDAO;
 import com.genericrest.dao.ProfessorDAO;
 import com.genericrest.model.Professor;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.NonUniqueResultException;
+import javax.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,5 +32,20 @@ public class ProfessorDAOImpl extends GenericDAO<Professor, Long> implements Pro
     public Logger getLogger() {
         return LOG;
     }
-    
+
+    @Override
+    public Professor findByNome(String nome) {
+        Query query = getEntityManager().createNamedQuery("Professor.findBynome", Professor.class);
+        query.setParameter("name", nome);
+        List<Professor> professor = query.getResultList();
+        
+        
+        if (professor == null || professor.isEmpty()) {
+            return null;
+        } else if (professor.size() > 1) {
+            throw new NonUniqueResultException();
+        } else {
+            return professor.get(0);
+        }
+    }
 }

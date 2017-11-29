@@ -6,6 +6,8 @@
 package com.genericrest.model;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -14,8 +16,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author thiag
  */
 @Entity
-@XmlRootElement
-@Table
+@XmlRootElement(name = "turma")
+@Table(name = "turma")
+@NamedQueries({
+    @NamedQuery(name ="Turma.findByNome", query = "select e from Turma e where e.nome = :nome")
+})
 public class Turma extends AbstractEntity{
     
     private Double qtdVagas;
@@ -51,6 +56,10 @@ public class Turma extends AbstractEntity{
 
     @Override
     public void updateParameters(Object entity) {
+        final Turma other = (Turma) entity;
+        this.nome = other.nome;
+        this.horas = other.horas;
+        this.qtdVagas = other.qtdVagas;
     }
     
 }

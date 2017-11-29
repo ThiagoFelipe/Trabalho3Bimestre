@@ -6,47 +6,47 @@
 package com.genericrest.service.impl;
 
 import com.genericrest.dao.DAO;
-import com.genericrest.dao.ProfessorDAO;
-import com.genericrest.model.Professor;
+import com.genericrest.model.Aluno;
 import com.genericrest.service.GenericCRUDRestService;
-import com.genericrest.service.ProfessorService;
 import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.genericrest.dao.AlunoDAO;
+import com.genericrest.service.AlunoService;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author thiag
  */
 @ManagedBean
-@Path("/professor")
-class ProfessorRestService extends GenericCRUDRestService<Professor> implements ProfessorService{
+@Path("/aluno")
+class AlunoRestService extends GenericCRUDRestService<Aluno> implements AlunoService{
     
-    private static final Logger LOG = LoggerFactory.getLogger(ProfessorRestService.class);
+     private static final Logger LOG = LoggerFactory.getLogger(AlunoRestService.class);
     
     @Inject
-    private ProfessorDAO professorDAO;
+    private AlunoDAO alunoDAO;
 
-    public ProfessorRestService() {
-        super(Professor.class);
+    public AlunoRestService() {
+        super(Aluno.class);
     }
     
     @GET
     @Path("nome/{param}")
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 
-    @Override
+     @Override
     public Response getByNome(String nome) {
         getLogger().debug("Pesquise o nome: {}", nome);
-        Professor found = professorDAO.findByNome(nome);
+        Aluno found = alunoDAO.findByNome(nome);
         if (found == null) {
             return Response.noContent().build();
         }
@@ -54,13 +54,13 @@ class ProfessorRestService extends GenericCRUDRestService<Professor> implements 
     }
 
     @Override
-    public GenericEntity listToGenericEntity(List<Professor> list) {
-        return new GenericEntity<List<Professor>>(list){};
+    public GenericEntity listToGenericEntity(List<Aluno> list) {
+        return new GenericEntity<List<Aluno>>(list){};
     }
 
     @Override
     public DAO getDao() {
-        return professorDAO;
+        return alunoDAO;
     }
 
     @Override

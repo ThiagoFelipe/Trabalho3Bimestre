@@ -6,11 +6,14 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Escola;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author thiag
  */
 public interface EscolaService extends CRUDRestService<Escola>{
+    
+    Response getByNome(String nome);
 
 }

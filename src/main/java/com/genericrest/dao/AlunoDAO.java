@@ -5,12 +5,14 @@
  */
 package com.genericrest.dao;
 
-import com.genericrest.model.Remuneracao;
+import com.genericrest.model.Aluno;
 
 /**
  *
  * @author thiag
  */
-public interface RemuneracaoDAO extends DAO<Remuneracao, Long>{
+public interface AlunoDAO extends DAO<Aluno, Long>{
+    
+    Aluno findByNome(String nome);
 
 }

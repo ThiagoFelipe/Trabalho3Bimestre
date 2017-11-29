@@ -6,6 +6,8 @@
 package com.genericrest.model;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -14,8 +16,11 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author thiag
  */
 @Entity
-@XmlRootElement
-@Table
+@XmlRootElement(name = "professor")
+@Table(name = "professor")
+@NamedQueries({
+    @NamedQuery(name ="Professor.findByNome", query = "select e from Professor e where e.nome = :nome")
+})
 public class Professor extends AbstractEntity{
     
     private String nome;
@@ -43,6 +48,9 @@ public class Professor extends AbstractEntity{
 
     @Override
     public void updateParameters(Object entity) {
+        final Professor other = (Professor) entity;
+        this.nome = other.nome;
+        this.telefone = other.telefone;
     }
     
 }

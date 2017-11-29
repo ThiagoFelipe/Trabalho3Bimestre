@@ -13,8 +13,12 @@ import com.genericrest.service.GenericCRUDRestService;
 import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.inject.Inject;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,10 +33,24 @@ class EscolaRestService extends GenericCRUDRestService<Escola> implements Escola
     private static final Logger LOG = LoggerFactory.getLogger(EscolaRestService.class);
     
      @Inject
-    private EscolaDAO escoDAO;
+    private EscolaDAO escolaDAO;
 
     public EscolaRestService() {
         super(Escola.class);
+    }
+    
+    @GET
+    @Path("nome/{param}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+
+    @Override
+    public Response getByNome(String nome) {
+        getLogger().debug("Pesquise o nome: {}", nome);
+        Escola found = escolaDAO.findByNome(nome);
+        if (found == null) {
+            return Response.noContent().build();
+        }
+        return Response.ok().entity(found).build();
     }
 
     @Override
@@ -42,7 +60,7 @@ class EscolaRestService extends GenericCRUDRestService<Escola> implements Escola
 
     @Override
     public DAO getDao() {
-        return escoDAO;
+        return escolaDAO;
     }
 
     @Override

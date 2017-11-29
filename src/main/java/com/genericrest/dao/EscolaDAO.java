@@ -12,5 +12,7 @@ import com.genericrest.model.Escola;
  * @author thiag
  */
 public interface EscolaDAO extends DAO<Escola, Long>{
+    
+    Escola findByNome(String nome);
  
 }

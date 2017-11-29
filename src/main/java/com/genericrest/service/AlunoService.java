@@ -5,11 +5,14 @@
  */
 package com.genericrest.service;
 
-import com.genericrest.model.Remuneracao;
+import com.genericrest.model.Aluno;
+import javax.ws.rs.core.Response;
 /**
  *
  * @author thiag
  */
-public interface RemuneracaoService extends CRUDRestService<Remuneracao>{
+public interface AlunoService extends CRUDRestService<Aluno>{
+    
+    Response getByNome(String nome);
 
 }

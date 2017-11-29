@@ -13,4 +13,6 @@ import com.genericrest.model.Aulas;
  */
 public interface AulasDAO extends DAO<Aulas, Long>{
     
+    Aulas findByNome(String nome);
+    
 }

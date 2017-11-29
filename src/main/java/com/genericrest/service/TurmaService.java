@@ -6,11 +6,14 @@
 package com.genericrest.service;
 
 import com.genericrest.model.Turma;
+import javax.ws.rs.core.Response;
 
 /**
  *
  * @author thiag
  */
 public interface TurmaService extends CRUDRestService<Turma>{
+    
+    Response getByNome(String nome);
 
 }
